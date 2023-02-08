@@ -1,17 +1,13 @@
 import {
   Backdrop,
-  Card,
   CircularProgress,
   Container,
-  Grid,
-  LinearProgress,
   Stack,
   Typography,
 } from "@mui/material";
-import { useReducer, useState } from "react";
 import ButtonCustom from "./components/Button";
 import CardPokemon from "./components/CardPokemon";
-import Input, { InputState } from "./components/input";
+import Input from "./components/input";
 import usePokemon from "./hooks/usePokemon";
 
 function App() {
