@@ -71,7 +71,7 @@ function App() {
           {!response.error &&response.data ? (
             <CardPokemon {...response.data} />
           ) : (
-            !response.error&&  <Typography>please submit a pokemon!</Typography>
+            !response.error&&  <Typography variant="h3" fontWeight={700}>no pokemon yet, please submit a pokemon!</Typography>
           )}
           {
             response.error && <img src={'https://media.tenor.com/uFyiB7WDYZ8AAAAM/pika-cry.gif'}
