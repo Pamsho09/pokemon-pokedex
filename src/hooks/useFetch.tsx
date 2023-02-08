@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import { useEffect, useReducer } from "react";
 type payload = {
   action: "loading" | "error" | "success" | "reset";
@@ -7,7 +7,12 @@ type payload = {
 
 const useFetch = (request: AxiosRequestConfig, isSubmit?: boolean) => {
   const [response, setResponse] = useReducer(
-    (state, payload: payload) => {
+    (state: {
+      data: any;
+      loading: boolean;
+      error: AxiosError | null;
+  
+    }, payload: payload) => {
       switch (payload.action) {
         case "loading":
           return {
