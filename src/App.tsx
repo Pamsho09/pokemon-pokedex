@@ -12,7 +12,7 @@ import usePokemon from "./hooks/usePokemon";
 
 function App() {
   const { handleChange, handleSubmit, input, response,reTry } = usePokemon();
-  console.log(response);
+ console.log(response.error)
   return (
     <Container
       sx={{
@@ -42,7 +42,12 @@ function App() {
               type="text"
               isError={response.error }
               sizes="small"
-              errorMessage={"Pokemon not found, try again!"}
+              errorMessage={
+                response?.error?.code==="ERR_BAD_REQUEST"
+                  ? "Pokemon not found, try again!"
+                  : response.error?.code ==="ERR_NETWORK"
+                  &&"Network error, try again!"
+              }
             />
             <ButtonCustom
               label="Search"
